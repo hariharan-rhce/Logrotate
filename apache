@@ -1,0 +1,11 @@
+/usr/local/apache/logs/*log {
+ daily
+ rotate 52
+ compress
+ missingok
+ notifempty
+ sharedscripts
+ postrotate
+        /usr/local/apache/bin/apachectl restart > /dev/null 2>/dev/null || true
+ endscript
+}
